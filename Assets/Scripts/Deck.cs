@@ -5,24 +5,22 @@ using UnityEngine.UI;
 using System.Linq;
 
 
-public static class Deck
+public class Deck
 
 {
 
-    public static Stack<Carta> cards = new Stack<Carta>();
+    public  Stack<Carta> cards = new Stack<Carta>();
   
-    public static void GetaCard(Stack<Carta> cards)
+    public void GetaCard(Stack<Carta> cards)
     {
-       Debug.Log( cards.Peek());
+        Debug.LogFormat("{0}", cards.Peek());
+
     }
-
-         public static Stack<Carta> Shuffle(this Stack<Carta> cards)
-         {
-         return new Stack<Carta>(cards.OrderBy(x => Random.Range(0,52)));
-          }
+    
 
 
-    static Deck()
+
+public Deck()
     {
        
         Carta.CardSuit[] palos= (Carta.CardSuit[])System.Enum.GetValues(typeof(Carta.CardSuit));
@@ -37,13 +35,7 @@ public static class Deck
     
 
       
-
-
     }
 
-
-
-
-
-
+    
 }

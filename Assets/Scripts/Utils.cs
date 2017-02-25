@@ -1,6 +1,9 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System;
 
 public static class Utils
 {
@@ -13,8 +16,11 @@ public static class Utils
 		List<Dropdown.OptionData> optionsList = new List<Dropdown.OptionData> (options);
 		dropdown.AddOptions (optionsList);
 	}
-
-	private static Dropdown.OptionData BuildOptionData (string name)
+    public static Stack<Carta> Shuffle(this Stack<Carta> cards)
+    {
+        return new Stack<Carta>(cards.OrderBy(x => UnityEngine.Random.Range(0, 52)));
+    }
+    private static Dropdown.OptionData BuildOptionData (string name)
 	{
 		return new Dropdown.OptionData (name);
 	}
