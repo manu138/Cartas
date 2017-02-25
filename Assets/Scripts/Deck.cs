@@ -2,29 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+
 
 public static class Deck
 
 {
 
     public static Stack<Carta> cards = new Stack<Carta>();
-
+  
     public static void GetaCard(Stack<Carta> cards)
     {
        Debug.Log( cards.Peek());
     }
 
-         public static void Shuffle(this Stack<Carta> cards)
-       {
-        Stack<Carta> stack2 = new Stack<Carta>(cards.ToArray());
-
-        foreach (Carta card in stack2)
-        {
-          
-        }
-
-
-    }
+         public static Stack<Carta> Shuffle(this Stack<Carta> cards)
+         {
+         return new Stack<Carta>(cards.OrderBy(x => Random.Range(0,52)));
+          }
 
 
     static Deck()
