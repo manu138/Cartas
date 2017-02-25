@@ -3,27 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public  class Deck
+public static class Deck
 
 {
 
-    private Stack<Carta> cards = new Stack<Carta>();
+    public static Stack<Carta> cards = new Stack<Carta>();
 
-    public static void GetaCard(Carta[] cards)
+    public static void GetaCard(Stack<Carta> cards)
     {
-        for (int i = 0; i < cards.Length; i++)
-        {
-            Debug.Log(cards[i]);
-        }
+       Debug.Log( cards.Peek());
     }
 
-   // public static void Shuffle(this Stack<Carta> cards)
-      //   {
+         public static void Shuffle(this Stack<Carta> cards)
+       {
+        Stack<Carta> stack2 = new Stack<Carta>(cards.ToArray());
 
-   // }
+        foreach (Carta card in stack2)
+        {
+          
+        }
 
-   
-    public Deck()
+
+    }
+
+
+    static Deck()
     {
        
         Carta.CardSuit[] palos= (Carta.CardSuit[])System.Enum.GetValues(typeof(Carta.CardSuit));
