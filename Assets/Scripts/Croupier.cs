@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Croupier : MonoBehaviour
 {
     public Deck baraja = new Deck();
-    
+ 
+
     public Button yourButton;
     public Button yourButton2;
     // Use this for initialization
@@ -28,17 +29,26 @@ public class Croupier : MonoBehaviour
 
     void TaskOnClick()
     {
-       
-        baraja.GetaCard(baraja.cards);
+        GetaCard();
     }
     void TaskOnClick2()
     {
 
-        Utils.Shuffle(baraja.cards);
+       baraja.cards= Utils.Shuffle(baraja.cards);
     }
     // Update is called once per frame
     void Update ()
     {
     }
+    public void GetaCard()
+    {
+        Carta.CardNumber number = new Carta.CardNumber();
+        Carta.CardSuit palo = new Carta.CardSuit();
+        Carta card= new Carta(palo,number);
+        card = baraja.cards.Peek();
+        Debug.Log(card.number);
+        Debug.Log(card.Suit);
+    }
+
 }
 

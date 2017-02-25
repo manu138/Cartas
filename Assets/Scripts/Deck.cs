@@ -11,12 +11,7 @@ public class Deck
 
     public  Stack<Carta> cards = new Stack<Carta>();
   
-    public void GetaCard(Stack<Carta> cards)
-    {
-        Debug.LogFormat("{0}", cards.Peek());
-
-    }
-    
+ 
 
 
 
